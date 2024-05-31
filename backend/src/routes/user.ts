@@ -41,14 +41,14 @@ userRouter.post("/signup", async (c) => {
       },
     });
 
-    const jwt = await sign(
+    const token = await sign(
       {
         id: user.id,
       },
       c.env.JWT_SECRET
     );
 
-    return c.json({ jwt }, 200);
+    return c.text(token, 200);
   } catch (error) {
     c.status(411);
     return c.text("Invalid Credentials");
@@ -87,7 +87,7 @@ userRouter.post("/signin", async (c) => {
       c.env.JWT_SECRET
     );
 
-    return c.json({ jwt }, 200);
+    return c.text(jwt, 200);
   } catch (error) {
     c.status(411);
     return c.text("Invalid Credentials");
