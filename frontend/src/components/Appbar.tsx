@@ -8,7 +8,7 @@ export function Appbar() {
         to={`/blogs`}
         className="font-bold flex justify-center flex-col text-xl cursor-pointer"
       >
-        Medium
+        log.
       </Link>
       <div>
         <Link to={`/publish`}>
